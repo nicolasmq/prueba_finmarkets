@@ -13,8 +13,9 @@ class AssetEntity extends Equatable {
   final int? dataSymbolsCount;
   final double? volume1HrsUsd;
   final double? volume1DayUsd;
-  final int? volume1MthUsd;
+  final double? volume1MthUsd;
   final String? idIcon;
+  final double? priceUsd;
   final DateTime? dataStart;
   final DateTime? dataEnd;
   final AssetIcon? icon;
@@ -34,6 +35,7 @@ class AssetEntity extends Equatable {
     this.volume1DayUsd,
     this.volume1MthUsd,
     this.idIcon,
+    this.priceUsd,
     this.dataStart,
     this.dataEnd,
     this.icon
@@ -55,6 +57,7 @@ class AssetEntity extends Equatable {
         volume1DayUsd,
         volume1MthUsd,
         idIcon,
+        priceUsd,
         dataStart,
         dataEnd,
         icon
