@@ -31,9 +31,8 @@ class AssetDetailProvider extends ChangeNotifier {
 
   void call(
       {required String assetId}) {
-    getSymbols(assetId);
+    // getSymbols(assetId);
     getPeriods();
-    notifyListeners();
   }
 
   void getPeriods() async {
