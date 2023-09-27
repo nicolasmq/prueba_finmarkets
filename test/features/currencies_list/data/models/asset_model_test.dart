@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:prueba_finmarkets/features/currencies_list/data/models/asset_model.dart';
 import 'package:prueba_finmarkets/features/currencies_list/domain/entities/asset_entity.dart';
 
-import '../../../helpers/testing_data/json_reader.dart';
+import '../../../../helpers/testing_data/json_reader.dart';
 
 void main() {
 

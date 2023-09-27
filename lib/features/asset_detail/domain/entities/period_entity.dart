@@ -2,41 +2,29 @@
 import 'package:equatable/equatable.dart';
 
 class PeriodEntity extends Equatable{
-  final DateTime? timePeriodStart;
-  final DateTime? timePeriodEnd;
-  final DateTime? timeOpen;
-  final DateTime? timeClose;
-  final double? priceOpen;
-  final double? priceHigh;
-  final double? priceLow;
-  final double? priceClose;
-  final double? volumeTraded;
-  final int? tradesCount;
+  final String? periodId;
+  final int? lengthSeconds;
+  final int? lengthMonths;
+  final int? unitCount;
+  final String? unitName;
+  final String? displayName;
 
   const PeriodEntity({
-    this.timePeriodStart,
-    this.timePeriodEnd,
-    this.timeOpen,
-    this.timeClose,
-    this.priceOpen,
-    this.priceHigh,
-    this.priceLow,
-    this.priceClose,
-    this.volumeTraded,
-    this.tradesCount,
+    this.periodId,
+    this.lengthSeconds,
+    this.lengthMonths,
+    this.unitCount,
+    this.unitName,
+    this.displayName,
   });
 
   @override
   List<Object?> get props => [
-    timePeriodStart,
-    timePeriodEnd,
-    timeOpen,
-    timeClose,
-    priceOpen,
-    priceHigh,
-    priceLow,
-    priceClose,
-    volumeTraded,
-    tradesCount,
+    periodId,
+    lengthSeconds,
+    lengthMonths,
+    unitCount,
+    unitName,
+    displayName,
   ];
 }

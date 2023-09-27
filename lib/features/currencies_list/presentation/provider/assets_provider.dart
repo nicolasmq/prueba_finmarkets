@@ -4,6 +4,10 @@ import 'package:prueba_finmarkets/features/currencies_list/domain/entities/asset
 import 'package:prueba_finmarkets/features/currencies_list/domain/usecases/get_all_assets_with_icons.dart';
 
 class AssetsProvider extends ChangeNotifier {
+  AssetsProvider(this._getAllAssetsWithIcons);
+
+  final GetAllAssetsWithIcons _getAllAssetsWithIcons;
+
   List<AssetEntity> _assetList = [];
   List<AssetEntity> get assetList => _assetList;
 
@@ -12,9 +16,7 @@ class AssetsProvider extends ChangeNotifier {
 
   bool loading = false;
   setError() {}
-  final GetAllAssetsWithIcons _getAllAssetsWithIcons;
 
-  AssetsProvider(this._getAllAssetsWithIcons);
 
   Future<void> getAllAssetsWithIcons() async {
     loading = true;

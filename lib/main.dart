@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:prueba_finmarkets/config/router/router.dart';
+import 'package:prueba_finmarkets/features/asset_detail/presentation/provider/asset_detail_provider.dart';
+import 'package:prueba_finmarkets/features/asset_detail/presentation/screens/asset_detail_screen.dart';
+import 'package:prueba_finmarkets/features/currencies_list/domain/entities/asset_entity.dart';
 import 'package:prueba_finmarkets/features/currencies_list/presentation/provider/assets_provider.dart';
 import 'package:prueba_finmarkets/features/currencies_list/presentation/screens/assets_screen.dart';
 import 'package:prueba_finmarkets/locator.dart';
@@ -16,12 +19,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => locator<AssetsProvider>(),
-      child: MaterialApp.router(
-        routerConfig: AppRouter.router(),
-      ),
-    );
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(
+        create: (_) => locator<AssetsProvider>(),
+        child: AssetsScreen(),
+        ),
+        ChangeNotifierProvider(
+          create: (context ) => locator<AssetDetailProvider>(),
+          child: const AssetDetail(assetId: '', assetEntity: AssetEntity()),
+        ),
+      ],
+    child: MaterialApp.router(
+    routerConfig: AppRouter.router(),));
+
+
   }
 }
 

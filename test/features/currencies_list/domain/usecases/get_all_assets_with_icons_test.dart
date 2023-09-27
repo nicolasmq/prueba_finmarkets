@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:prueba_finmarkets/features/currencies_list/domain/entities/asset_entity.dart';
 import 'package:prueba_finmarkets/features/currencies_list/domain/usecases/get_all_assets_with_icons.dart';
 
-import '../../../helpers/test_helper.mocks.dart';
+import '../../../../helpers/test_helper.mocks.dart';
 
 void main() {
   late GetAllAssetsWithIcons getAllAssetsWithIcons;

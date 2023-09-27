@@ -5,7 +5,7 @@ import 'package:prueba_finmarkets/core/constants/constants.dart';
 import 'package:prueba_finmarkets/features/currencies_list/domain/entities/asset_entity.dart';
 import 'package:prueba_finmarkets/features/currencies_list/presentation/provider/assets_provider.dart';
 
-import '../../../helpers/test_helper.mocks.dart';
+import '../../../../helpers/test_helper.mocks.dart';
 
 void main() {
   late MockGetAllAssetsWithIcons mockGetAllAssetsWithIcons;

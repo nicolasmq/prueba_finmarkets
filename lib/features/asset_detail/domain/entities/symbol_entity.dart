@@ -10,7 +10,7 @@ class SymbolEntity extends Equatable {
   final String? assetIdBase;
   final String? assetIdQuote;
   final String? assetIdUnit;
-  final int? futureContractUnit;
+  final double? futureContractUnit;
   final String? futureContractUnitAsset;
   final DateTime? dataStart;
   final DateTime? dataEnd;
@@ -20,18 +20,18 @@ class SymbolEntity extends Equatable {
   final DateTime? dataOrderbookEnd;
   final DateTime? dataTradeStart;
   final DateTime? dataTradeEnd;
-  final int? volume1Hrs;
-  final int? volume1HrsUsd;
-  final int? volume1Day;
-  final int? volume1DayUsd;
-  final int? volume1Mth;
-  final int? volume1MthUsd;
+  final double? volume1Hrs;
+  final double? volume1HrsUsd;
+  final double? volume1Day;
+  final double? volume1DayUsd;
+  final double? volume1Mth;
+  final double? volume1MthUsd;
   final int? price;
   final String? symbolIdExchange;
   final String? assetIdBaseExchange;
   final String? assetIdQuoteExchange;
   final double? pricePrecision;
-  final int? sizePrecision;
+  final double? sizePrecision;
 
   const SymbolEntity({
     this.symbolId,

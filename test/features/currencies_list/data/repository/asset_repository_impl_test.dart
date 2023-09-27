@@ -8,7 +8,7 @@ import 'package:prueba_finmarkets/features/currencies_list/data/repository/asset
 import 'package:prueba_finmarkets/features/currencies_list/data/repository/icons_repository_impl.dart';
 import 'package:prueba_finmarkets/features/currencies_list/domain/entities/asset_entity.dart';
 
-import '../../../helpers/test_helper.mocks.dart';
+import '../../../../helpers/test_helper.mocks.dart';
 
 void main() {
   late MockAssetRemoteDataSource mockAssetRemoteDataSource;

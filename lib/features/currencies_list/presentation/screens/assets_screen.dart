@@ -74,7 +74,7 @@ class AssetListTile extends StatelessWidget {
           ""),
       onTap: () {
         context.goNamed('asset-detail',
-            pathParameters: {"id": assetEntity.assetId!});
+            pathParameters: {"id": assetEntity.assetId!}, extra: assetEntity);
       },
     );
   }

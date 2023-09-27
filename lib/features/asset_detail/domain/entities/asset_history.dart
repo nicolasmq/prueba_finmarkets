@@ -8,7 +8,7 @@ class AssetOhlcvEntity extends Equatable {
   final DateTime? timeOpen;
   final DateTime? timeClose;
   final double? priceOpen;
-  final int? priceHigh;
+  final double? priceHigh;
   final double? priceLow;
   final double? priceClose;
   final double? volumeTraded;

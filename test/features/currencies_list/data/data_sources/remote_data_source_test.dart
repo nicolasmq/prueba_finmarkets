@@ -7,8 +7,8 @@ import 'package:prueba_finmarkets/features/currencies_list/data/data_sources/rem
 import 'package:prueba_finmarkets/features/currencies_list/data/data_sources/remote_data_source/icons_remote_data_source.dart';
 import 'package:prueba_finmarkets/features/currencies_list/data/models/asset_model.dart';
 
-import '../../../helpers/test_helper.mocks.dart';
-import '../../../helpers/testing_data/json_reader.dart';
+import '../../../../helpers/test_helper.mocks.dart';
+import '../../../../helpers/testing_data/json_reader.dart';
 
 void main() {
   late MockHttpClient mockHttpClient;
@@ -77,4 +77,6 @@ void main() {
       expect(result, throwsA(isA<ServerException>()));
     });
   });
+
+
 }
