@@ -27,12 +27,20 @@ class _AssetsScreenState extends State<AssetsScreen> {
       body: SafeArea(
         child: Visibility(
           visible: !assetsProvider.loading,
-          replacement: Center(
+          replacement: const Center(
             child: CircularProgressIndicator(),
           ),
           child: SingleChildScrollView(
             child: Visibility(
               visible: assetsProvider.showError.isEmpty,
+              replacement: Center(child: Column(
+                children: [
+                  Text(assetsProvider.showError),
+                  IconButton(onPressed: () {
+                    assetsProvider.getAllAssetsWithIcons();
+                  }, icon: Icon(Icons.refresh))
+                ],
+              ),),
               child: Column(
                 children: [
                   const Center(

@@ -20,19 +20,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(
-        create: (_) => locator<AssetsProvider>(),
-        child: AssetsScreen(),
-        ),
-        ChangeNotifierProvider(
-          create: (context ) => locator<AssetDetailProvider>(),
-          child: const AssetDetail(assetId: '', assetEntity: AssetEntity()),
-        ),
-      ],
-    child: MaterialApp.router(
-    routerConfig: AppRouter.router(),));
-
-
+        providers: [
+          ChangeNotifierProvider(
+            create: (_) => locator<AssetsProvider>(),
+            child: const AssetsScreen(),
+          ),
+          ChangeNotifierProvider(
+            create: (_) => locator<AssetDetailProvider>(),
+            child: const AssetDetail(assetId: '', assetEntity: AssetEntity()),
+          ),
+        ],
+        child: MaterialApp.router(
+          routerConfig: AppRouter.router(context),
+        ));
   }
 }
 

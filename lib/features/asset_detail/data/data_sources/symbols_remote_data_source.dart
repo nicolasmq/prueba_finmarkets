@@ -19,10 +19,9 @@ class SymbolsRemoteDataSourceImpl extends SymbolsRemoteDataSource {
   @override
   Future<List<SymbolModel>> getSymbols(String assetId) async {
 
-    final response = await client.get(Uri.parse(Urls.symbolsUrlByAssetId(assetId: assetId)), headers: {
-      "X-CoinAPI-Key": Urls.apiKey
+    final response = await client.get(Uri.parse(Urls.symbolsUrl(assetId: assetId)), headers: {
+      "X-CoinAPI-Key": Urls.apiKey3
     },);
-    print( response.body );
     if (response.statusCode == 200) {
       return (json.decode(response.body) as List)
           .map((data) => SymbolModel.fromMap(data))

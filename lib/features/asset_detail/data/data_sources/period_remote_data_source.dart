@@ -19,7 +19,7 @@ class PeriodsRemoteDataSourceImpl extends PeriodRemoteDataSource {
   @override
   Future<List<PeriodModel>> getAllPeriods() async {
     final response = await http.get(Uri.parse(Urls.periodsUrl), headers: {
-      "X-CoinAPI-Key": Urls.apiKey
+      "X-CoinAPI-Key": Urls.apiKey3
     },);
 
     if (response.statusCode == 200) {
@@ -27,7 +27,7 @@ class PeriodsRemoteDataSourceImpl extends PeriodRemoteDataSource {
           .map((data) => PeriodModel.fromMap(data))
           .toList();
     } else {
-
+      print(response.statusCode);
       throw ServerException();
     }
   }

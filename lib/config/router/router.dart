@@ -5,7 +5,8 @@ import 'package:prueba_finmarkets/features/currencies_list/domain/entities/asset
 import 'package:prueba_finmarkets/features/currencies_list/presentation/screens/assets_screen.dart';
 
 class AppRouter {
-  static router() => GoRouter(initialLocation: '/', routes: [
+
+  static router(BuildContext context) => GoRouter(initialLocation: "/", routes: [
         GoRoute(
             path: '/',
             name: 'home',
@@ -23,7 +24,7 @@ class AppRouter {
             ]),
       ]);
 
-  static page({required Widget child, Object? arguments}) => MaterialPage(
+  static page({required Widget child, Object? arguments}) => MaterialPage(maintainState: true,
         child: child,
         arguments: arguments,
       );

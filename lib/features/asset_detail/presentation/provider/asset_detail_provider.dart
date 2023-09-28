@@ -29,13 +29,13 @@ class AssetDetailProvider extends ChangeNotifier {
   List<AssetOhlcvEntity> _assetOhlcvList = [];
   List<AssetOhlcvEntity> get assetOhlcvList => _assetOhlcvList;
 
-  void call(
-      {required String assetId}) {
-    // getSymbols(assetId);
-    getPeriods();
+  void call({required String assetId}) {
+    getSymbols(assetId);
   }
 
   void getPeriods() async {
+    _errorMessage = '';
+    await Future.delayed(Duration(milliseconds: 2000));
     final result = await _getAllPeriod.call();
     result.fold((failure) {
       _errorMessage = failure.message;
@@ -53,7 +53,6 @@ class AssetDetailProvider extends ChangeNotifier {
       notifyListeners();
     }, (symbols) {
       _symbolList = symbols;
-      notifyListeners();
     });
   }
 
@@ -67,5 +66,60 @@ class AssetDetailProvider extends ChangeNotifier {
       _assetOhlcvList = assetOhlcv;
       notifyListeners();
     });
+  }
+
+  DateTime getTimeStart(PeriodEntity period) {
+    switch (period.unitName) {
+      case "second":
+        return DateTime(
+            DateTime.now().year,
+            DateTime.now().month,
+            DateTime.now().day,
+            DateTime.now().hour,
+            DateTime.now().minute,
+            DateTime.now().second - period.unitCount!);
+      case "minute":
+        return DateTime(
+            DateTime.now().year,
+            DateTime.now().month,
+            DateTime.now().day,
+            DateTime.now().hour,
+            DateTime.now().minute - period.unitCount!,
+            DateTime.now().second);
+      case "hour":
+        return DateTime(
+            DateTime.now().year,
+            DateTime.now().month,
+            DateTime.now().day,
+            DateTime.now().hour - period.unitCount!,
+            DateTime.now().minute,
+            DateTime.now().second);
+      case "day":
+        return DateTime(
+            DateTime.now().year,
+            DateTime.now().month,
+            DateTime.now().day - period.unitCount!,
+            DateTime.now().hour,
+            DateTime.now().minute,
+            DateTime.now().second);
+      case "month":
+        return DateTime(
+            DateTime.now().year,
+            DateTime.now().month - period.unitCount!,
+            DateTime.now().day,
+            DateTime.now().hour,
+            DateTime.now().minute,
+            DateTime.now().second);
+      case "year":
+        return DateTime(
+            DateTime.now().year - period.unitCount!,
+            DateTime.now().month,
+            DateTime.now().hour,
+            DateTime.now().day,
+            DateTime.now().minute,
+            DateTime.now().second);
+      default:
+        return DateTime(DateTime.now().year);
+    }
   }
 }

@@ -97,7 +97,7 @@ void main() {
         () async {
       // arrange
       when(mockHttpClient.get(
-          Uri.parse(Urls.ohlcvUrl(testSymbolId, testPeriodId, testStartTime)),
+          Uri.parse(Urls.ohlcvUrl(testSymbolId, testPeriodId, testStartTime.toIso8601String())),
           headers: {
             "X-CoinAPI-Key": Urls.apiKey
           })).thenAnswer((_) async => http.Response(
@@ -116,7 +116,7 @@ void main() {
             () async {
           // arrange
           when(mockHttpClient.get(
-              Uri.parse(Urls.ohlcvUrl(testSymbolId, testPeriodId, testStartTime)),
+              Uri.parse(Urls.ohlcvUrl(testSymbolId, testPeriodId, testStartTime.toIso8601String())),
               headers: {
                 "X-CoinAPI-Key": Urls.apiKey
               })).thenAnswer((_) async => http.Response(

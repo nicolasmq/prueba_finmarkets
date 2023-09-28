@@ -17,7 +17,7 @@ class AssetRemoteDataSourceImpl extends AssetRemoteDataSource {
   @override
   Future<List<AssetModel>> getFilterAssets(List<String> assetsIds) async {
     final response = await client.get(Uri.parse(Urls.filterAssetId(assetsIds)), headers: {
-      "X-CoinAPI-Key": Urls.apiKey
+      "X-CoinAPI-Key": Urls.apiKey3
     },);
 
     if (response.statusCode == 200) {

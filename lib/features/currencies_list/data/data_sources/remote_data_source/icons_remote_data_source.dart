@@ -19,7 +19,7 @@ class IconsRemoteDataSourceImpl extends IconsRemoteDataSource {
   @override
   Future<List<AssetIconModel>> getAllAssetIcons() async{
     final response = await client.get(Uri.parse(Urls.assetsIconUrl), headers: {
-      "X-CoinAPI-Key": Urls.apiKey
+      "X-CoinAPI-Key": Urls.apiKey3
     });
 
     if (response.statusCode == 200) {

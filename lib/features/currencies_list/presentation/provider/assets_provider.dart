@@ -15,11 +15,11 @@ class AssetsProvider extends ChangeNotifier {
   String get showError => _errorMessage;
 
   bool loading = false;
-  setError() {}
-
 
   Future<void> getAllAssetsWithIcons() async {
+    _errorMessage = "";
     loading = true;
+    await Future.delayed(Duration(milliseconds: 2000));
     final result = await _getAllAssetsWithIcons.call(Lists.assetsIds);
 
     result.fold((failure) {
@@ -31,6 +31,8 @@ class AssetsProvider extends ChangeNotifier {
       loading = false;
       notifyListeners();
     });
+
+    notifyListeners();
 
 
   }

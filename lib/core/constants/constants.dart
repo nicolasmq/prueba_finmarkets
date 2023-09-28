@@ -4,6 +4,7 @@ class Urls {
   // Api Keys
   static const String apiKey = "C278D26B-86FA-4AF4-ADCE-23CD65BA04D0";
   static const String apiKey2 = "A7D2AB45-225D-4C88-ACF7-3C16DE442B8C";
+  static const String apiKey3 = "844A250E-68CB-4EE5-8263-1D5955C55D63";
   // currencies_list
   static const String assetsIconUrl = "$baseUrl/assets/icons/100";
   static const String allAssets = "$baseUrl/assets";
@@ -11,16 +12,15 @@ class Urls {
   static String filterAssetId(List<String> assetsIds) =>
       "$baseUrl/assets?filter_asset_id=${assetsIds.join(",")}";
   // asset-detail
-  static const symbolPrefix = "BINANCE_SPOT_";
   static const String periodsUrl = "$baseUrl/ohlcv/periods";
-  static String symbolsUrl(String filterSymbolId, String filterExchangeId,{String? assetId}) =>
-      "$baseUrl/symbols?filter_symbol_id={filter_symbol_id}&filter_exchange_id={filter_exchange_id}&filter_asset_id={filter_asset_id}";
+  static String symbolsUrl({String? filterExchangeId,String? assetId}) =>
+      "$baseUrl/symbols?filter_symbol_id=BINANCE_SPOT_$assetId&filter_asset_id=$assetId";
   static String symbolsUrlByAssetId({String? assetId}) =>
       "$baseUrl/symbols?filter_asset_id=$assetId";
 
-  static String ohlcvUrl(String symbolId, String periodId, DateTime timeStart,
+  static String ohlcvUrl(String symbolId, String periodId, String timeStart,
           {int? limit, bool? includeEmptyItems, DateTime? timeEnd}) =>
-      "$baseUrl/ohlcv/$symbolId/history?period_id=$periodId&time_start=$timeStart&time_end=$timeEnd&limit=$limit&include_empty_items=$includeEmptyItems";
+      "$baseUrl/ohlcv/$symbolId/history?period_id=$periodId&time_start=$timeStart";
 }
 
 class Lists {

@@ -28,8 +28,8 @@ class AssetOhlcvRemoteDataSourceImpl extends AssetOhlcvRemoteDataSource {
       DateTime? timeEnd,
       bool? includeEmptyItems,
       int? limit}) async {
-    final response = await client.get(Uri.parse(Urls.ohlcvUrl(symbolId, periodId, timeStart)), headers: {
-      "X-CoinAPI-Key": Urls.apiKey
+    final response = await client.get(Uri.parse(Urls.ohlcvUrl(symbolId, periodId, timeStart.toIso8601String())), headers: {
+      "X-CoinAPI-Key": Urls.apiKey3
     },);
 
     if (response.statusCode == 200) {
@@ -37,6 +37,7 @@ class AssetOhlcvRemoteDataSourceImpl extends AssetOhlcvRemoteDataSource {
           .map((data) => AssetOhlcvModel.fromMap(data))
           .toList();
     } else {
+      print(response.statusCode);
       throw ServerException();
     }
   }

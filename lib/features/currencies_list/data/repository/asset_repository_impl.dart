@@ -18,7 +18,6 @@ class AssetRepositoryImpl extends AssetRepository {
   Future<Either<Failure, List<AssetEntity>>> getFilterAssets(List<String> assetsIds) async {
     try {
       final result = await assetRemoteDataSource.getFilterAssets(assetsIds);
-
       return Right(result.map((r) => r.toEntity()).toList());
     } on ServerException {
       return const Left(BadRequest(ErrorsMessages.badRequest));

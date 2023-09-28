@@ -26,7 +26,7 @@ class SymbolEntity extends Equatable {
   final double? volume1DayUsd;
   final double? volume1Mth;
   final double? volume1MthUsd;
-  final int? price;
+  final double? price;
   final String? symbolIdExchange;
   final String? assetIdBaseExchange;
   final String? assetIdQuoteExchange;
